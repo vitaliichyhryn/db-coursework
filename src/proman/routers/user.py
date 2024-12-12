@@ -41,7 +41,7 @@ async def update_user(user_id: int, user: User, session: SessionDep):
     session.refresh(user_db)
     return user_db
 
-@router.delete("/{user_id}", status_code=status.HTTP_200_OK)
+@router.delete("/{user_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_user(user_id: int, session: SessionDep):
     user = session.get(User, user_id)
     if not user:
